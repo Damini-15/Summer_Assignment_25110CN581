@@ -9,16 +9,21 @@ class Codechef
         Scanner ob = new Scanner(System.in);
         int n=ob.nextInt();
         int a[] = new int [n];
-        HashMap <Integer,Integer> map = new HashMap<>();
         for(int i=0;i<n;i++)
         {
             a[i] = ob.nextInt();
-            map.put(a[i],map.getOrDefault(a[i],0)+1);
+        }
+        int max=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++)
+        {
+            if(max<a[i]) max=a[i];
+        }
+        int max2=Integer.MIN_VALUE;
+        for(int i=0;i<n;i++)
+        {
+            if(a[i]<max && a[i]>max2) max2=a[i];
         }
 
-        System.out.println("Enter element whose frequency is to be known:");
-        int k = ob.nextInt();
-
-        System.out.println("Frequency is:"+map.get(k));
+        System.out.println("Second largest element is:"+max2);
     }
 }
